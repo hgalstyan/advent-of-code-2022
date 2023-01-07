@@ -3,7 +3,6 @@ data = open("input.txt", "r").read().split("\n\n")
 board = data[0].split("\n")
 path = data[1]
 
-# Parse the path
 idx = 0
 commands = []
 cur_num = ""
@@ -16,15 +15,11 @@ for idx in range(len(path)):
         cur_num = ""
         commands.append(path[idx])
 
-# If last command is a number
 if cur_num != "":
     commands.append(int(cur_num))
 
-# Possible orientations
 dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]]
 
-
-# Parse the board
 nrows = len(board)
 ncols = max([len(row) for row in board])
 
@@ -44,8 +39,6 @@ for row, line in enumerate(board):
             bound_col[col][0] = min(bound_col[col][0], row)
             bound_col[col][1] = max(bound_col[col][1], row)
 
-
-# Do the instructions
 direction = 0
 row = 0
 col = bound_row[0][0]
@@ -59,7 +52,6 @@ for cmd in commands:
 
         continue
 
-    # Move!
     drow, dcol = dirs[direction]
 
     for _ in range(cmd):
@@ -86,4 +78,4 @@ for cmd in commands:
 
 
 ans = 1000 * (row + 1) + 4 * (col + 1) + direction
-print(ans)
+print("Answer 1",ans)
