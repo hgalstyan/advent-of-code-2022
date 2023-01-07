@@ -78,4 +78,4 @@ for cmd in commands:
 
 
 ans = 1000 * (row + 1) + 4 * (col + 1) + direction
-print("Answer 1",ans)
+print("Answer 1:",ans)
